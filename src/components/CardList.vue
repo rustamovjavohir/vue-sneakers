@@ -1,17 +1,12 @@
 <template>
   <div class="grid grid-cols-4 gap-5">
     <Card
-      imageUrl="/sneakers/sneakers-1.jpg"
-      title="Some text"
-      :price="1250"
-      :isAdded="true"
+    v-for="item in items" :key="item.id"
+      :imageUrl="item.imageUrl"
+      :title="item.title"
+      :price="item.price"
       :onClickAdd="onClickAdd"
     />
-    <Card imageUrl="/sneakers/sneakers-1.jpg" title="Some text" :price="1250" :isFavourite="true" />
-    <Card imageUrl="/sneakers/sneakers-1.jpg" title="Some text" :price="1250" />
-    <Card imageUrl="/sneakers/sneakers-1.jpg" title="Some text" :price="1250" />
-    <Card imageUrl="/sneakers/sneakers-1.jpg" title="Some text" :price="1250" />
-    <Card imageUrl="/sneakers/sneakers-1.jpg" title="Some text" :price="1250" />
   </div>
 </template>
 <script setup>
@@ -20,5 +15,11 @@ import Card from '@/components/Card.vue'
 function onClickAdd() {
   alert('Add')
 }
+
+defineProps({
+  items: Array
+})
+
+// console.log(items)
 </script>
 <style></style>
