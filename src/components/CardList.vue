@@ -1,16 +1,29 @@
 <template>
   <div class="grid grid-cols-4 gap-5">
     <Card
-    v-for="item in items" :key="item.id"
+      v-for="item in items"
+      :key="item.id"
+      :id="item.id"
       :imageUrl="item.imageUrl"
       :title="item.title"
       :price="item.price"
       :onClickAdd="onClickAdd"
+      :isFavourite="item.isFavourite"
+      :addToFavourite="() => addToFavourite(item)"
     />
   </div>
 </template>
 <script setup>
 import Card from '@/components/Card.vue'
+import { inject } from 'vue'
+
+// const onClickFavourite = async () => {
+//   const obj = {
+//     ...props,
+//     parentId: props.id
+//   }
+//   addToFavourite(obj)
+// }
 
 function onClickAdd() {
   alert('Add')

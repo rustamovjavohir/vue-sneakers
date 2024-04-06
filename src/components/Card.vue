@@ -6,7 +6,7 @@
       <img
         :src="isFavourite ? '/like-2.svg' : '/like-1.svg'"
         alt="Like 1"
-        class="absolute top-8 left-8"
+        class="absolute md:top-4 md:left-4 xl:top-8 xl:left-8"
         @click="onClickFavourite"
       />
       <img :src="imageUrl" alt="" />
@@ -22,10 +22,11 @@
   </div>
 </template>
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, inject } from 'vue'
 
-defineProps({
+const props = defineProps({
   imageUrl: String,
+  id: Number,
   title: {
     type: String,
     required: true
@@ -42,5 +43,7 @@ defineProps({
   onClickAdd: Function,
   onClickFavourite: Function
 })
+
+
 </script>
 <style></style>

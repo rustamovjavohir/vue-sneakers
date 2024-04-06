@@ -8,7 +8,7 @@
         <b> 1200 som</b>
         <img
           class="opacity-40 hover:opacity-100 cursor-pointer transition hover:-translate-y-1"
-          src="/public/close.svg"
+          src="/close.svg"
           alt=""
         />
       </div>
