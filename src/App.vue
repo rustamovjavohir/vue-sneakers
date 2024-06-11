@@ -14,7 +14,7 @@ const filters = reactive({
 })
 
 const addToFavourite = async (item) => {
-  item.isFavourite = true
+  item.isFavourite = !item.isFavourite
 
   console.log(item)
 }

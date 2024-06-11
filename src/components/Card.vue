@@ -23,8 +23,7 @@
 </template>
 <script setup>
 import { ref, onMounted, inject } from 'vue'
-
-const props = defineProps({
+defineProps({
   imageUrl: String,
   id: Number,
   title: {
@@ -43,6 +42,8 @@ const props = defineProps({
   onClickAdd: Function,
   onClickFavourite: Function
 })
+
+
 
 
 </script>

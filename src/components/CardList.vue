@@ -9,7 +9,7 @@
       :price="item.price"
       :onClickAdd="onClickAdd"
       :isFavourite="item.isFavourite"
-      :addToFavourite="() => addToFavourite(item)"
+      :onClickFavourite="() => addToFavourite(item)"
     />
   </div>
 </template>
@@ -17,13 +17,9 @@
 import Card from '@/components/Card.vue'
 import { inject } from 'vue'
 
-// const onClickFavourite = async () => {
-//   const obj = {
-//     ...props,
-//     parentId: props.id
-//   }
-//   addToFavourite(obj)
-// }
+const addToFavourite = inject('addToFavourite')
+
+
 
 function onClickAdd() {
   alert('Add')
@@ -37,3 +33,4 @@ defineProps({
 </script>
 <style></style>
 
+i
