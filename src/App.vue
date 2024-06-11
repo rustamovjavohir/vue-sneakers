@@ -14,9 +14,30 @@ const filters = reactive({
 })
 
 const addToFavourite = async (item) => {
-  item.isFavourite = !item.isFavourite
+  // item.isFavourite = !item.isFavourite
 
-  console.log(item)
+  // console.log(item)
+  const url_ = 'https://c248f9b7213dc741.mokky.dev/favourites'
+  try {
+    if (item.isFavourite) {
+      if (item.favouriteId) {
+        const { data } = await axios.delete(`${url_}/${item.favouriteId}`)
+      }
+      item.isFavourite = false
+      item.favouriteId = null
+    } else {
+      const obj = {
+        parentId: item.id
+      }
+      const { data } = await axios.post(url_, obj)
+      item.isFavourite = true
+      item.favouriteId = data.id
+    }
+
+    // console.log(data)
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 async function fetchFavourites() {
