@@ -8,10 +8,20 @@ import CardList from '@/components/CardList.vue'
 
 const items = ref([]) // {'value': []}
 
+const drawerOpen = ref(false)
+
 const filters = reactive({
   sortBy: '',
   searchQuery: ''
 })
+
+const openDrawer = () => {
+  drawerOpen.value = true
+}
+
+const closeDrawer = () => {
+  drawerOpen.value = false
+}
 
 const addToFavourite = async (item) => {
   // item.isFavourite = !item.isFavourite
@@ -89,6 +99,10 @@ onMounted(async () => {
 watch(filters, getItems)
 
 provide('addToFavourite', addToFavourite)
+provide('cartAction', {
+  openDrawer,
+  closeDrawer
+})
 
 function onChangeSelect(e) {
   if (e.target.value === 'title') {
@@ -109,9 +123,10 @@ function onChangeSearch(e) {
 </script>
 
 <template>
-  <!-- <Drawer /> -->
+  <Drawer v-if="drawerOpen" />
   <div class="bg-white w-4/5 m-auto rounded-2xl shadow-xl mt-14">
-    <Header />
+    <Header @open-drawer="openDrawer" />
+
     <div class="p-10">
       <div class="flex justify-between items-center">
         <h2 class="text-3xl font-bold mb-4">Все красовки</h2>

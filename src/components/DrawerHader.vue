@@ -1,6 +1,7 @@
 <template>
   <div class="flex items-center gap-5">
     <svg
+    @click="closeDrawer"
       class="opacity-30 cursor-pointer hover:opacity-100 transition hover:translate-x-1"
       width="16"
       height="14"
@@ -27,7 +28,8 @@
     <h2 class="text-2xl font-bold">Корзинка</h2>
   </div>
 </template>
-<script>
-export default {}
+<script setup>
+import { inject } from 'vue'
+const closeDrawer = inject('cartAction').closeDrawer
 </script>
 <style></style>
