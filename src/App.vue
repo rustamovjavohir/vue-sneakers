@@ -149,6 +149,7 @@ function onChangeSearch(e) {
         </div>
       </div>
       <CardList class="mt-10" :items="items" />
+      <!-- <card-list class="mt-10" :items="items"/> -->  // This is the same as above
     </div>
   </div>
 </template>
